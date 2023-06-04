@@ -15,8 +15,6 @@ fi
 # Leemos el contenido del archivo y lo procesamos línea por línea
 for USER_NAME in $(cat "${1}") 
 do 
-    PASSWORD=$(date +%s%N | sha256sum | head -c10)
-    echo "${USER_NAME}:${PASSWORD}"sudo
     # eliminar el usuario
     userdel -r ${USER_NAME}
 
@@ -28,4 +26,4 @@ do
     else
         echo "Se ha eliminado el usuario ${USER_NAME}"
     fi
-done < "${1}"
+done 

@@ -1,7 +1,6 @@
 #!/bin/bash
 #este script crea usuarios a partir de un fichero
 
-
 function usage(){
     # Indicamos las instrucciones del script
     echo "ejecutar como root"
@@ -45,4 +44,4 @@ do
     # Imponer un cambio de contraseña en el siguiente inicio de sesión
     passwd -e ${USER_NAME}
 
-done < "${1}"
+done 
