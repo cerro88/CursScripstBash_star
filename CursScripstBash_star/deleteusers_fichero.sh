@@ -2,7 +2,7 @@
 function usage(){
     # Indicamos las instrucciones del script
     echo "ejecutar como root"
-    echo "INSTRUCCIONES: ./create_users_from_file.sh FILENAME"
+    echo "INSTRUCCIONES: ./deleteusers_fichero.sh archivo.txt"
     exit 1
 }
 
