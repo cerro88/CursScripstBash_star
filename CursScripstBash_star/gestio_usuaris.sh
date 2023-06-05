@@ -83,4 +83,4 @@ else
     MENSAJE="usuarios eliminados ${USUARIOS}"
 fi
 
-/home/belen/cursScriptsBash/telegram_missatge.sh "${MENSAJE}"
+/home/belen/Code/CursScripstBash_star/CursScripstBash_star/boot-mensaje.sh "${MENSAJE}"
