@@ -1,5 +1,6 @@
 #!/bin/bash
 NOM_SCRIPT=${0}
+USUARIOS=0
 function usage(){
     # Indicamos las instrucciones del script
     echo "${NOM_SCRIPT} ACTION FILE_NAME"
@@ -58,6 +59,7 @@ fi
 ACTION=${1}
 
 FICHERO=${2}
+USUARIOS=0
 for USER in $(cat ${FICHERO})
 do
     if [[ ${ACTION} == "create" ]]
@@ -70,4 +72,15 @@ do
         echo "ACCIÓN ${ACTION} NO DISPONIBLE"
         exit 1
     fi
+    USUARIOS=$((USUARIOS+1))
 done
+
+MENSAJE=""
+if [[ ${ACTION} == "create" ]]
+then
+    MENSAJE="usuarios creados ${USUARIOS}"
+else    
+    MENSAJE="usuarios eliminados ${USUARIOS}"
+fi
+
+/home/belen/cursScriptsBash/telegram_missatge.sh "${MENSAJE}"
