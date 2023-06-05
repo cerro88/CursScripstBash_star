@@ -74,13 +74,14 @@ do
     fi
     USUARIOS=$((USUARIOS+1))
 done
-
+DATA=$(date)
+HOST=$(hostname)
 MENSAJE=""
 if [[ ${ACTION} == "create" ]]
 then
-    MENSAJE="usuarios creados ${USUARIOS}"
+    MENSAJE="Se acaban de crear ${USUARIOS} usuarios en ${HOST} con fecha: ${DATA}"
 else    
-    MENSAJE="usuarios eliminados ${USUARIOS}"
+    MENSAJE="Se acaban de crear ${USUARIOS} usuarios en ${HOST} con fecha: ${DATA}"
 fi
 
 /home/belen/Code/CursScripstBash_star/CursScripstBash_star/boot-mensaje.sh "${MENSAJE}"
