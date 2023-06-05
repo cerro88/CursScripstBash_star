@@ -63,12 +63,16 @@ USUARIOS=0
 for USER in $(cat ${FICHERO})
 do
     case "${ACTION}" in
-                create)
-                create_user ${USER}
-                ;;
-                delete)
-                delete_user ${USER}
-                ;;
+        create)
+            create_user ${USER}
+            ;;
+        delete)
+            delete_user ${USER}
+            ;;
+        *)
+            echo " Opción incorrecta"
+            exit 1
+            ;;
     esac
 
     USUARIOS=$((USUARIOS+1))
