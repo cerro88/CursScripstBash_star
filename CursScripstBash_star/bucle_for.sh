@@ -13,7 +13,7 @@
 echo -n "Escribe un número:  "
 read limite
 
-for (( i = 0; i < $limite; 1++ ))
+for (( i = 0; i < $limite; i++ ))
 #si queremos usar <= doble parentesis
 #i es = a 0; i es menor que el límite; i se incrementa 1
 do

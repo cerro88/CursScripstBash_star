@@ -14,4 +14,4 @@ echo "numero de lineas: ${NUMERO_LINEAS}"
 echo "la suma val: ${SUMA}"
 #MITJANA = SUMA DIVIDIT EL NUMERO DE LINEAS
 MEDIA=$(echo "scale=2; ${SUMA}/${NUMERO_LINEAS}" | bc)
-echo "la media vale ${MEDIA}
+echo "la media vale ${MEDIA}"
