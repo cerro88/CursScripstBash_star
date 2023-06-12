@@ -13,7 +13,7 @@ URL="https://www.random.org/integers/?num=${NUMEROS_QUE_GENERAR}&min=1&max=100&c
 
 
 SUMA=0
-MAX=101
+MAX=0
 MIN=0
 for NUMERO in $(curl -s ${URL})
 do 
