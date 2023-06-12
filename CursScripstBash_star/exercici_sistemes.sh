@@ -129,9 +129,9 @@ echo "EXERCICI 17"
 echo "---------------------------------------------------"
 touch system.info.sh
 chmod u+x system_info.sh
-echo "#!/bin/bash" > system_info.sh
+echo "#!/bin/bash" > system_info.sh"
 echo "df -h | grep -m 2 "/dev/sda1" |tail -n 1 | awk '{print $4}'" >> system_info.sh
-echo "free -l -h" >> system_info.sh
+echo "free -l -h" >> system_info.sh"
 chmod u+x system_info.sh
 
 

@@ -40,7 +40,7 @@ function delete_user(){
     deluser --remove-home ${USER_NAME}
     if [[ ${?} -ne 0 ]]
     then
-        echo "Error creando el usuario ${USER_NAME}"
+        echo "Error borrando el usuario ${USER_NAME}"
         exit 1
     fi
 }
