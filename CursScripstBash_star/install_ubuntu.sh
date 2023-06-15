@@ -42,4 +42,30 @@ sudo apt-get install -f
     fi
 fi
 actualizar
+#instalación de visual studio code
+# Importar la clave GPG de Microsoft es parte del proceso para agregar el repositorio oficial de Visual Studio Code
+wget -qO- https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > packages.microsoft.gpg
+#se mueve este archivo a la ubicación /etc/apt/trusted.gpg.d/microsoft.gpg, que es donde se almacenan las claves GPG confiables para el sistema.
+mv packages.microsoft.gpg /etc/apt/trusted.gpg.d/microsoft.gpg
+# se agrega el repositorio de Visual Studio Code al sistema
+echo "deb [arch=amd64] https://packages.microsoft.com/repos/vscode stable main" |  tee /etc/apt/sources.list.d/vscode.list
+
+# Actualiza la lista de paquetes e instala Visual Studio Code
+actualizar
+apt install code
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 ####....
