@@ -19,7 +19,7 @@ fi
 #se actualiza el sistema
 actualizar
 #se instalan una serie de paquetes básicos para el terminal Linux
-apt install net-tools tree wget curl snap ssh git
+apt install net-tools tree wget curl snap ssh git gparted
 #comprueva si ha habido algún error en la intalación de los paquetes
 if [[ ${?} -ne 0 ]]
 then
@@ -53,6 +53,15 @@ echo "deb [arch=amd64] https://packages.microsoft.com/repos/vscode stable main" 
 # Actualiza la lista de paquetes e instala Visual Studio Code
 actualizar
 apt install code
+actualizar
+if [[ ${?} == 0 ]]
+then
+    echo "Las instalaciones se han hecho correctamente"
+else
+    usage
+fi
+
+
 
 
 
