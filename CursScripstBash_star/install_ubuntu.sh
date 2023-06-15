@@ -42,3 +42,4 @@ sudo apt-get install -f
     fi
 fi
 actualizar
+####....
