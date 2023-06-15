@@ -1,33 +1,40 @@
-# #!/bin/bash
+# !/bin/bash
 
-# #script que instalará los paquetes básicos en ubuntu
-# #un navegador y un editor de código
+# script que instalará los paquetes básicos en ubuntu
+# 
+function usage(){
+    echo "Error de instalación"
+    exit 1
+}
 
-# if [[ ${UID} -ne 0 ]]
-# then
-#     echo "No eres el administrador"
-#     exit 1
-# fi
+if [[ ${UID} -ne 0 ]]
+then
+    echo "No eres el administrador"
+    exit 1
+fi
 
-
-# # apt update 
-# # apt upgrade
-# # apt install net-tools tree wget curl snap
-# # #se instalará Brave 
-# # curl -fsSLo /usr/share/keyrings/brave-browser-archive-keyring.gpg https://brave-browser-apt-release.s3.brave.com/brave-browser-archive-keyring.gpg
-# # echo "deb [signed-by=/usr/share/keyrings/brave-browser-archive-keyring.gpg] https://brave-browser-apt-release.s3.brave.com/ stable main"| tee /etc/apt/sources.list.d/brave-browser-release.list 
-# # apt update
-# # apt install brave-browser #problemas despues de instalarlo con ficheros y dependencias 'cambiar a chrome'
-# # apt update
-# # #Visual Studio Code
-# # #se instalan las dependencias
-# # apt install software-properties-common apt-transport-https wget
-# # # se Importa la clave GPG
-# # wget -q https://packages.microsoft.com/keys/microsoft.asc -O- | sudo apt-key add -
-# # #se habilita el repositorio de código de Visual Studio
-# # add-apt-repository "deb [arch=amd64] https://packages.microsoft.com/repos/vscode stable main"
-# # #se instala Visual Studio
-# # apt install code
-# # apt update 
-
-
+#se actualiza el sistema
+apt update && apt upgrade
+#se instalan una serie de paquetes básicos para el terminal linux
+apt install net-tools tree wget curl snap ssh git
+#comprueva si ha habido algún error en la intalación de los paquetes
+if [[ ${?} -ne 0 ]]
+then
+    usage
+fi
+#se vuelve a actualizar el sistema
+apt update && apt upgrade
+#se descarga el instalador de chrome
+wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+#se instala chrome
+sudo dpkg -i google-chrome-stable_current_amd64.deb
+#si hay algun problema con la instalación
+if [[ ${?} -ne 0 ]]
+then
+sudo apt-get install -f
+    #se vuelve a comprobar los errores
+    if [[ ${?} -ne 0 ]]
+    then
+        usage
+    fi
+fi
