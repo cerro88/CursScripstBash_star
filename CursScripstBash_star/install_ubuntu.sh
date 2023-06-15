@@ -1,5 +1,4 @@
 #!/bin/bash
-
 # script que instalará los paquetes básicos en ubuntu
 #un navegador y un editor de código
 
@@ -14,7 +13,7 @@ function actualizar(){
     apt update && apt upgrade
 }
 
-#Se comprueva que estamos ejecutando el scrip como usario root
+#Se comprueba que estamos ejecutando el scrip como usario root
 if [[ ${UID} -ne 0 ]]
 then
     echo "No eres el administrador"
@@ -70,21 +69,14 @@ else
 fi
 #Se vuelve a actualizar el sistema
 actualizar
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-####....
+# Agregar al usuario actual al grupo sudo
+# -a se utiliza para agregar al usuario a un grupo existente sin eliminarlo de otros grupos a los que ya pertenece.
+# G expecifica el grupo
+usermod -aG sudo ${USER}
+if [[ ${?} == 0 ]]
+then
+    echo " se ha añadido al usuario ${USER} al grupo sudo"
+else
+    echo "no ha podido añardirse el usuario al grupo sudo"
+    exit 1
+fi
