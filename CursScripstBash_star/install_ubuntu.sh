@@ -1,10 +1,13 @@
-# !/bin/bash
+#!/bin/bash
 
 # script que instalará los paquetes básicos en ubuntu
-# 
+
 function usage(){
     echo "Error de instalación"
     exit 1
+}
+function actualizar(){
+    apt update && apt upgrade
 }
 
 if [[ ${UID} -ne 0 ]]
@@ -14,8 +17,8 @@ then
 fi
 
 #se actualiza el sistema
-apt update && apt upgrade
-#se instalan una serie de paquetes básicos para el terminal linux
+actualizar
+#se instalan una serie de paquetes básicos para el terminal Linux
 apt install net-tools tree wget curl snap ssh git
 #comprueva si ha habido algún error en la intalación de los paquetes
 if [[ ${?} -ne 0 ]]
@@ -23,7 +26,7 @@ then
     usage
 fi
 #se vuelve a actualizar el sistema
-apt update && apt upgrade
+actualizar
 #se descarga el instalador de chrome
 wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
 #se instala chrome
@@ -38,3 +41,4 @@ sudo apt-get install -f
         usage
     fi
 fi
+actualizar
